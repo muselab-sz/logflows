@@ -178,6 +178,8 @@ const _createOrder = async (ctx, next) => {
         var pickup_time = ctx.request.body.waypoints[0].datetimeto;
         var tmp = pickup_time.split(" ");
         pickup_time = tmp[0] + " " + regionResult?.time;
+        var d = new Date(pickup_time);
+        pickup_time = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + " " + regionResult?.time;
         //pickup_time = new Date(pickup_time).toISOString()
 
         var body = {
