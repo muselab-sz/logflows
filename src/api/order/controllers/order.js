@@ -198,7 +198,7 @@ const _createOrder = async (ctx, next) => {
             dropoff_notes: ctx.request.body.remarks,
 
             region: ctx.state.user.region, // 从请求接口用户来
-            weight: ctx.request.body.gw,
+            weight: ctx.request.body.gw.toString(),
             origin: "API",
             client_reference_number: ctx.request.body.shipref,
             enforce_validation: true,
@@ -220,6 +220,116 @@ const _createOrder = async (ctx, next) => {
     }
 };
 
+// createOrder订单存在时更新订单
+const _updateOrder = async (ctx, next) => {
+    //D0.记录日志
+    const log = {
+        shipref: ctx.request.body.shipref,
+        action: "update",
+        from: "logflows",
+        to: "pickupp",
+        from_time: new Date(),
+        from_header: ctx.request.headers,
+        from_body: ctx.request.body,
+        compid: ctx.state.user.compid,
+        position: "logflows To connector",
+    };
+    const logResult = await mylog(log);
+    //D1.写入数据库order表和waypoint表
+    let data = {
+        compid: ctx.request.body.compid,
+        shipref: ctx.request.body.shipref,
+        shiprefid: ctx.request.body.shiprefid,
+        secondref: ctx.request.body.secondref,
+        remarks: ctx.request.body.remarks,
+        gw: ctx.request.body.gw,
+        gwunit: ctx.request.body.gwunit,
+        label: ctx.request.body.label,
+        totalqty: ctx.request.body.totalqty,
+        created_by_id: ctx.state.user.id,
+        updated_by_id: ctx.state.user.id,
+    };
+
+    const _updateOrder1 = async (ctx) => {
+        const resendTimes = autoResendInterceptor(ctx, "update");
+        try {
+            var updateOrder = await strapi.query("api::order.order").update({
+                where: {id: ctx.request.body.id},
+                data: data,
+            });
+            strapi.log.info("resultOrder" + JSON.stringify(updateOrder));
+            //D2.向pickupp调用updateOrder接口
+            let path = "/merchant/orders/" + updateOrder.pickupp_order_id;
+            let method = "PUT";
+            var body = {
+                pickup_contact_person: ctx.request.body.waypoints[0].companyname,
+                pickup_contact_phone: ctx.request.body.waypoints[0].phone,
+                pickup_notes: ctx.request.body.waypoints[0].pickup_notes,
+                dropoff_contact_person: ctx.request.body.waypoints[1].contactperson,
+                dropoff_contact_phone: ctx.request.body.waypoints[1].phone,
+                dropoff_notes: ctx.request.body.waypoints[1].dropoff_notes,
+            };
+
+            try {
+                let res = await axios(method, path, body);
+                if (res.status != 200) {
+                    strapi.log.info("Pickuup api error:");
+                    strapi.log.info(res);
+                    if (resendTimes < 3) {
+                        return await _updateOrder1(ctx);
+                    } else {
+                        await updateLog(
+                            {id: logResult.id},
+                            {
+                                position: "connector To pickupp",
+                                msg: res.response.data.meta.error_message,
+                                to_body: {
+                                    method: method,
+                                    path: path,
+                                    body: body,
+                                },
+                            }
+                        );
+                        ctx.body = res.response.data.meta.error_message;
+                    }
+                } else {
+                    //D3.更新记录到数据库，说明日志已完成推送
+                    ctx.body = updateOrder;
+                }
+            } catch (error) {
+                console.log(error);
+                if (resendTimes < 3) {
+                    return await _updateOrder1(ctx);
+                } else {
+                    await updateLog(
+                        {id: logResult.id},
+                        {
+                            position: "connector To pickupp",
+                            msg: JSON.stringify(error),
+                            to_body: {
+                                method: method,
+                                path: path,
+                                body: body,
+                            },
+                        }
+                    );
+                    ctx.body = err;
+                }
+            }
+        } catch (err) {
+            //D3.异常则进行下一次的间隔时间调用
+            strapi.log.info("err:");
+            strapi.log.info(err);
+            if (resendTimes < 3) {
+                return await _updateOrder1(ctx);
+            } else {
+                ctx.body = err;
+            }
+        }
+    };
+    return await _updateOrder1(ctx);
+}
+
 module.exports = {
     // logflows tms request this api to create order
     createOrder: async (ctx, next) => {
@@ -237,7 +347,18 @@ module.exports = {
         };
         const logResult = await mylog(log);
         ctx.logResult = logResult;
-        return await _createOrder(ctx);
+
+        const isCurrentOrder = await strapi.db.query("api::order.order").findOne({
+            select: ["*"],
+            where: {shipref: ctx.request.body.shipref},
+        });
+        // 订单存在则更新
+        if (isCurrentOrder) {
+            ctx.request.body.id = isCurrentOrder.id
+            return await _updateOrder(ctx);
+        } else {
+            return await _createOrder(ctx);
+        }
     },
     resendOrder: async (ctx, next) => {
         strapi.log.info("resendOrder...");
