@@ -1,0 +1,1154 @@
+{
+	"info": {
+		"_postman_id": "ed04e4ad-9d34-494b-92e1-adda6f5f09d9",
+		"name": "logflows",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "743711"
+	},
+	"item": [
+		{
+			"name": "订单",
+			"item": [
+				{
+					"name": "获取订单列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/getOrders",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"getOrders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "未授权",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}api/getOrders",
+									"host": [
+										"{{baseUrl}}api"
+									],
+									"path": [
+										"getOrders"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "connect-src 'self' https:;img-src 'self' data: blob: https://dl.airtable.com;media-src 'self' data: blob:;default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Strapi <strapi.io>"
+								},
+								{
+									"key": "Content-Length",
+									"value": "119"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Jul 2022 03:07:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"status\": 401,\n        \"name\": \"UnauthorizedError\",\n        \"message\": \"Missing or invalid credentials\",\n        \"details\": {}\n    }\n}"
+						},
+						{
+							"name": "获取订单列表",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}api/getOrders",
+									"host": [
+										"{{baseUrl}}api"
+									],
+									"path": [
+										"getOrders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "connect-src 'self' https:;img-src 'self' data: blob: https://dl.airtable.com;media-src 'self' data: blob:;default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Strapi <strapi.io>"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1278"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Jul 2022 03:08:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 194,\n        \"compid\": \"1\",\n        \"shipref\": \"31310148736\",\n        \"projectcode\": null,\n        \"secondref\": \"\",\n        \"remarks\": \"訂單數:1 直接放門口ok，不用簽收，謝謝！籠車號:3\",\n        \"gw\": 19,\n        \"gwunit\": \"KGS\",\n        \"label\": \"1\",\n        \"totalqty\": 4,\n        \"createdAt\": \"2022-07-21T04:43:04.229Z\",\n        \"updatedAt\": \"2022-07-21T04:43:04.229Z\",\n        \"publishedAt\": null,\n        \"waypoints\": [\n            {\n                \"lat\": \"22.2706734\",\n                \"lng\": \"114.1917098\",\n                \"phone\": \"85212341234\",\n                \"address\": \"九龍大角咀福利街 8 號港灣豪庭廣場 1 樓 125 舖\",\n                \"datetime\": \"2022-07-19 00:00:00\",\n                \"province\": \"Hong Kong\",\n                \"pointtype\": \"P\",\n                \"datetimeto\": \"2022-07-19 00:00:00\",\n                \"companyname\": \"Wellcome(Metro Harbour Plaza)站\"\n            },\n            {\n                \"lat\": \"22.2706734\",\n                \"lng\": \"114.1917098\",\n                \"phone\": \"85252253388\",\n                \"address\": \"米蘭軒, 香港深水埗欽州街58號 11樓A室\",\n                \"datetime\": \"2022-07-19 00:00:00\",\n                \"province\": \"Hong Kong\",\n                \"pointtype\": \"D\",\n                \"datetimeto\": \"2022-07-19 00:00:00\",\n                \"contactperson\": \"Lee\"\n            }\n        ],\n        \"status\": \"scheduled\",\n        \"delivery_agent_name\": null,\n        \"delivery_agent_phone\": null,\n        \"trip_dropoff_address\": null,\n        \"location_barcode\": null,\n        \"warehouse_id\": null,\n        \"cancel_reason_type\": null,\n        \"dropoff_proof_image_url\": null,\n        \"signature_url\": null,\n        \"delivery_agent_location\": null,\n        \"tracking_url\": null,\n        \"detail_reason\": null,\n        \"reschedule_url\": null,\n        \"attempts\": null,\n        \"pickup_attempts\": null,\n        \"dropoff_attempts\": null,\n        \"pickupp_order_id\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "获取订单详情",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shipref\":2\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/getOrder?shipref=31310148736",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"getOrder"
+							],
+							"query": [
+								{
+									"key": "shipref",
+									"value": "31310148736"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shipref\":2\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}api/getOrder?shipref=1211",
+									"host": [
+										"{{baseUrl}}api"
+									],
+									"path": [
+										"getOrder"
+									],
+									"query": [
+										{
+											"key": "shipref",
+											"value": "1211"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "connect-src 'self' https:;img-src 'self' data: blob: https://dl.airtable.com;media-src 'self' data: blob:;default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Strapi <strapi.io>"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1316"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Jul 2022 07:05:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 53,\n    \"compid\": \"1234\",\n    \"shipref\": \"1211\",\n    \"projectcode\": null,\n    \"secondref\": \"1\",\n    \"remarks\": \"test12\",\n    \"gw\": 2,\n    \"gwunit\": \"公斤\",\n    \"label\": \"1\",\n    \"totalqty\": 1,\n    \"createdAt\": \"2022-07-07T03:36:20.756Z\",\n    \"updatedAt\": \"2022-07-07T06:45:09.228Z\",\n    \"publishedAt\": null,\n    \"waypoints\": [\n        {\n            \"lat\": \"22.2706734\",\n            \"lng\": \"114.1917098\",\n            \"phone\": \"61030705\",\n            \"address\": \"香港地点1\",\n            \"datetime\": \"2022-06-17 00:00:00\",\n            \"province\": \"Hong Kong\",\n            \"pointtype\": \"P\",\n            \"datetimeto\": \"2022-06-17 00:00:00\",\n            \"companyname\": \"公司名称1\"\n        },\n        {\n            \"lat\": \"22.2706734\",\n            \"lng\": \"114.1917098\",\n            \"phone\": \"61030705\",\n            \"address\": \"香港地点2\",\n            \"datetime\": \"2022-06-17 00:00:00\",\n            \"province\": \"Hong Kong\",\n            \"pointtype\": \"P\",\n            \"datetimeto\": \"2022-06-17 00:00:00\",\n            \"companyname\": \"公司名称1\"\n        }\n    ],\n    \"status\": \"delivered\",\n    \"delivery_agent_name\": \"Jane Lee\",\n    \"delivery_agent_phone\": \"99999999\",\n    \"trip_dropoff_address\": \"Kowloon, HK\",\n    \"location_barcode\": \"\",\n    \"warehouse_id\": \"\",\n    \"cancel_reason_type\": \"\",\n    \"dropoff_proof_image_url\": null,\n    \"signature_url\": \"https://hkpickup-uploads.s3.amazonaws.com/orders/signature_5bfae04a-ff96-3925-9125-95cedf856357_4792.jpg\",\n    \"delivery_agent_location\": \"59.2405884,123.1382951\",\n    \"tracking_url\": \"https://portal.hk.pickupp.io/tracking?orderNumber=PU123456789000HK\",\n    \"detail_reason\": \"Recipient reject parcel\",\n    \"reschedule_url\": \"pupp.co/KyEtRk\",\n    \"attempts\": \"1\",\n    \"pickup_attempts\": \"\",\n    \"dropoff_attempts\": \"1\"\n}"
+						},
+						{
+							"name": "获取订单详情",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shipref\":2\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}api/getOrder?shipref=1219",
+									"host": [
+										"{{baseUrl}}api"
+									],
+									"path": [
+										"getOrder"
+									],
+									"query": [
+										{
+											"key": "shipref",
+											"value": "1219"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "connect-src 'self' https:;img-src 'self' data: blob: https://dl.airtable.com;media-src 'self' data: blob:;default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Strapi <strapi.io>"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Jul 2022 07:06:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "创建订单",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"compid\": 1,\n    \"shipref\": \"31310148738\",\n    \"secondref\": \"1\",\n    \"remarks\": \"test\",\n    \"gw\": 1.00,\n    \"gwunit\": \"公斤\",\n    \"label\": 1,\n    \"totalqty\": 1,\n    \"waypoints\":[\n        {\n            \"address\":\"香港地点1\",\n            \"companyname\":\"公司名称1\",\n            \"datetime\":\"2022-07-23 10:00:00\",\n            \"datetimeto\":\"2022-07-23 10:00:00\",\n            \"lat\":\"22.2706734\",\n            \"lng\":\"114.1917098\",\n            \"phone\":\"61030705\",\n            \"pointtype\":\"P\",\n            \"province\":\"Hong Kong\"\n        },\n         {\n            \"address\":\"香港地点2\",\n            \"contactperson\":\"公司名称1\",\n            \"datetime\":\"2022-07-10 01:00:00\",\n            \"datetimeto\":\"2022-07-13 01:00:00\",\n            \"lat\":\"22.2706734\",\n            \"lng\":\"114.1917098\",\n            \"phone\":\"61030705\",\n            \"pointtype\":\"D\",\n            \"province\":\"Hong Kong\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/createOrder",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"createOrder"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wrong date",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"compid\": 1234,\n    \"shipref\": \"1212\",\n    \"secondref\": \"1\",\n    \"remarks\": \"test\",\n    \"gw\": 1.00,\n    \"gwunit\": \"公斤\",\n    \"label\": 1,\n    \"totalqty\": 1,\n    \"waypoints\":[\n        {\n            \"address\":\"香港地点1\",\n            \"companyname\":\"公司名称1\",\n            \"datetime\":\"2022-07-12T10:00:00+08:00\",\n            \"datetimeto\":\"2022-07-12T10:00:00+08:00\",\n            \"lat\":\"22.2706734\",\n            \"lng\":\"114.1917098\",\n            \"phone\":\"61030705\",\n            \"pointtype\":\"P\",\n            \"province\":\"Hong Kong\"\n        },\n         {\n            \"address\":\"香港地点2\",\n            \"contactperson\":\"公司名称1\",\n            \"datetime\":\"2022-07-10 01:00:00\",\n            \"datetimeto\":\"2022-07-13 01:00:00\",\n            \"lat\":\"22.2706734\",\n            \"lng\":\"114.1917098\",\n            \"phone\":\"61030705\",\n            \"pointtype\":\"D\",\n            \"province\":\"Hong Kong\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}api/createOrder",
+									"host": [
+										"{{baseUrl}}api"
+									],
+									"path": [
+										"createOrder"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "connect-src 'self' https:;img-src 'self' data: blob: https://dl.airtable.com;media-src 'self' data: blob:;default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Strapi <strapi.io>"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Jul 2022 07:04:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Wrong pickup time format"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"compid\": 1234,\n    \"shipref\": \"1212\",\n    \"secondref\": \"1\",\n    \"remarks\": \"test\",\n    \"gw\": 1.00,\n    \"gwunit\": \"公斤\",\n    \"label\": 1,\n    \"totalqty\": 1,\n    \"waypoints\":[\n        {\n            \"address\":\"香港地点1\",\n            \"companyname\":\"公司名称1\",\n            \"datetime\":\"2022-07-12T10:00:00+08:00\",\n            \"datetimeto\":\"2022-07-12T10:00:00+08:00\",\n            \"lat\":\"22.2706734\",\n            \"lng\":\"114.1917098\",\n            \"phone\":\"61030705\",\n            \"pointtype\":\"P\",\n            \"province\":\"Hong Kong\"\n        },\n         {\n            \"address\":\"香港地点2\",\n            \"contactperson\":\"公司名称1\",\n            \"datetime\":\"2022-07-10 01:00:00\",\n            \"datetimeto\":\"2022-07-13 01:00:00\",\n            \"lat\":\"22.2706734\",\n            \"lng\":\"114.1917098\",\n            \"phone\":\"61030705\",\n            \"pointtype\":\"D\",\n            \"province\":\"Hong Kong\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}api/createOrder",
+									"host": [
+										"{{baseUrl}}api"
+									],
+									"path": [
+										"createOrder"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "connect-src 'self' https:;img-src 'self' data: blob: https://dl.airtable.com;media-src 'self' data: blob:;default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Strapi <strapi.io>"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1099"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Jul 2022 07:05:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 151,\n    \"compid\": \"1234\",\n    \"shipref\": \"1212\",\n    \"projectcode\": null,\n    \"secondref\": \"1\",\n    \"remarks\": \"test\",\n    \"gw\": 1,\n    \"gwunit\": \"公斤\",\n    \"label\": \"1\",\n    \"totalqty\": 1,\n    \"createdAt\": \"2022-07-08T07:05:03.712Z\",\n    \"updatedAt\": \"2022-07-08T07:05:03.712Z\",\n    \"publishedAt\": null,\n    \"waypoints\": [\n        {\n            \"lat\": \"22.2706734\",\n            \"lng\": \"114.1917098\",\n            \"phone\": \"61030705\",\n            \"address\": \"香港地点1\",\n            \"datetime\": \"2022-07-12T10:00:00+08:00\",\n            \"province\": \"Hong Kong\",\n            \"pointtype\": \"P\",\n            \"datetimeto\": \"2022-07-12T10:00:00+08:00\",\n            \"companyname\": \"公司名称1\"\n        },\n        {\n            \"lat\": \"22.2706734\",\n            \"lng\": \"114.1917098\",\n            \"phone\": \"61030705\",\n            \"address\": \"香港地点2\",\n            \"datetime\": \"2022-07-10 01:00:00\",\n            \"province\": \"Hong Kong\",\n            \"pointtype\": \"D\",\n            \"datetimeto\": \"2022-07-13 01:00:00\",\n            \"contactperson\": \"公司名称1\"\n        }\n    ],\n    \"status\": \"scheduled\",\n    \"delivery_agent_name\": null,\n    \"delivery_agent_phone\": null,\n    \"trip_dropoff_address\": null,\n    \"location_barcode\": null,\n    \"warehouse_id\": null,\n    \"cancel_reason_type\": null,\n    \"dropoff_proof_image_url\": null,\n    \"signature_url\": null,\n    \"delivery_agent_location\": null,\n    \"tracking_url\": null,\n    \"detail_reason\": null,\n    \"reschedule_url\": null,\n    \"attempts\": null,\n    \"pickup_attempts\": null,\n    \"dropoff_attempts\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "更新订单",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":215,\n    \"compid\": 1,\n    \"shipref\": \"31310148738\",\n    \"secondref\": \"1\",\n    \"remarks\": \"test123\",\n    \"gw\": 2.00,\n    \"gwunit\": \"公斤\",\n    \"label\": 1,\n    \"totalqty\": 1,\n    \"waypoints\": [\n        {\n            \"companyname\": \"公司名称1\",\n            \"phone\": \"61030705\",\n            \"pickup_notes\": \"pnotes\"\n        },\n        {\n            \"contactperson\": \"公司名称1\",\n            \"phone\": \"61030705\",\n            \"dropoff_notes\": \"Hong Kong\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/updateOrder",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"updateOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除订单",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shipref\": \"31310148738\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/deleteOrder",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"deleteOrder"
+							],
+							"query": [
+								{
+									"key": "shipref",
+									"value": "52",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "order not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shipref\": 1211\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}api/deleteOrder",
+									"host": [
+										"{{baseUrl}}api"
+									],
+									"path": [
+										"deleteOrder"
+									],
+									"query": [
+										{
+											"key": "shipref",
+											"value": "52",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "connect-src 'self' https:;img-src 'self' data: blob: https://dl.airtable.com;media-src 'self' data: blob:;default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Strapi <strapi.io>"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Jul 2022 07:49:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Order not found"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shipref\": 1213\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}api/deleteOrder",
+									"host": [
+										"{{baseUrl}}api"
+									],
+									"path": [
+										"deleteOrder"
+									],
+									"query": [
+										{
+											"key": "shipref",
+											"value": "52",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "connect-src 'self' https:;img-src 'self' data: blob: https://dl.airtable.com;media-src 'self' data: blob:;default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Strapi <strapi.io>"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1157"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 Jul 2022 07:59:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 159,\n    \"compid\": \"1234\",\n    \"shipref\": \"1213\",\n    \"projectcode\": null,\n    \"secondref\": \"1\",\n    \"remarks\": \"test\",\n    \"gw\": 1,\n    \"gwunit\": \"公斤\",\n    \"label\": \"1\",\n    \"totalqty\": 1,\n    \"createdAt\": \"2022-07-08T07:58:55.144Z\",\n    \"updatedAt\": \"2022-07-08T07:58:58.533Z\",\n    \"publishedAt\": null,\n    \"waypoints\": [\n        {\n            \"lat\": \"22.2706734\",\n            \"lng\": \"114.1917098\",\n            \"phone\": \"61030705\",\n            \"address\": \"香港地点1\",\n            \"datetime\": \"2022-07-12T10:00:00+08:00\",\n            \"province\": \"Hong Kong\",\n            \"pointtype\": \"P\",\n            \"datetimeto\": \"2022-07-12T10:00:00+08:00\",\n            \"companyname\": \"公司名称1\"\n        },\n        {\n            \"lat\": \"22.2706734\",\n            \"lng\": \"114.1917098\",\n            \"phone\": \"61030705\",\n            \"address\": \"香港地点2\",\n            \"datetime\": \"2022-07-10 01:00:00\",\n            \"province\": \"Hong Kong\",\n            \"pointtype\": \"D\",\n            \"datetimeto\": \"2022-07-13 01:00:00\",\n            \"contactperson\": \"公司名称1\"\n        }\n    ],\n    \"status\": \"scheduled\",\n    \"delivery_agent_name\": null,\n    \"delivery_agent_phone\": null,\n    \"trip_dropoff_address\": null,\n    \"location_barcode\": null,\n    \"warehouse_id\": null,\n    \"cancel_reason_type\": null,\n    \"dropoff_proof_image_url\": null,\n    \"signature_url\": null,\n    \"delivery_agent_location\": null,\n    \"tracking_url\": null,\n    \"detail_reason\": null,\n    \"reschedule_url\": null,\n    \"attempts\": null,\n    \"pickup_attempts\": null,\n    \"dropoff_attempts\": null,\n    \"pickupp_order_id\": \"2e7c2ce5-1a35-4abf-9bd4-fda26ed67b75\"\n}"
+						}
+					]
+				},
+				{
+					"name": "pickupp订单更新推送",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Pickupp-Origin",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"order_number\": \"PU123456789000HK\",\n  \"status\": \"delivered\",\n  \"client_reference_number\": \"1211\",\n  \"updated_at\": \"2021-05-21T05:00:00Z\",\n  \"attempts\": \"1\",\n  \"pickup_attempts\": \"\",\n  \"dropoff_attempts\": \"1\",\n  \"dropoff_proof_image_url\": \"https://hkpickup-uploads.s3.amazonaws.com/orders/dropoff_3bfae04a-ff96-4495-1215-92ffda849357_6aa7.jpg\",\n  \"signature_url\": \"https://hkpickup-uploads.s3.amazonaws.com/orders/signature_5bfae04a-ff96-3925-9125-95cedf856357_4792.jpg\",\n  \"delivery_agent_location\": \"59.2405884,123.1382951\",\n  \"tracking_url\": \"https://portal.hk.pickupp.io/tracking?orderNumber=PU123456789000HK\",\n  \"dropoff_contact_person\": \"Jimmy Kwan\",\n  \"cancel_reason_type\": \"\",\n  \"warehouse_id\": \"\",\n  \"location_barcode\": \"\",\n  \"trip_dropoff_address\": \"Kowloon, HK\",\n  \"delivery_agent_name\": \"Jane Lee\",\n  \"delivery_agent_phone\": \"99999999\",\n  \"package_width\": 30,\n  \"package_length\": 30,\n  \"package_height\": 30,\n  \"package_weight\": 1,\n  \"order_price\": 23,\n  \"pickup_time\": \"2021-05-21T12:00:00Z\",\n  \"dropoff_time\": \"2021-05-21T16:00:00Z\",\n  \"reschedule_url\": \"pupp.co/KyEtRk\",\n  \"service_type\": \"next_day\",\n  \"service_time\": 1,\n  \"detail_reason\": \"Recipient reject parcel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/pickuppUpdateOrder",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"pickuppUpdateOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取登录用户信息",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/users/me",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4NDcwOTQyLCJleHAiOjE2OTAwMjg1NDJ9.vxPIs0Blvj-y2vcJ8_7b3CG-hsh6nhiBiM8ozp2PApg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "pickupp",
+			"item": [
+				{
+					"name": "获取订单",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "am9yZGFubGVlQGxvZ2Zsb3dzLmNvbTo5N2ZjZGE0Y2JlZGM4NGUxMTY1YWRjZWE4ZGVhYmQyMA==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://gateway-uat.hk.pickupp.io/v2/merchant/orders/123?include_history=true",
+							"protocol": "https",
+							"host": [
+								"gateway-uat",
+								"hk",
+								"pickupp",
+								"io"
+							],
+							"path": [
+								"v2",
+								"merchant",
+								"orders",
+								"123"
+							],
+							"query": [
+								{
+									"key": "include_history",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "创建订单",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "am9yZGFubGVlQGxvZ2Zsb3dzLmNvbTo5N2ZjZGE0Y2JlZGM4NGUxMTY1YWRjZWE4ZGVhYmQyMA==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://gateway-uat.hk.pickupp.io/v2/merchant/orders/123?include_history=true",
+							"protocol": "https",
+							"host": [
+								"gateway-uat",
+								"hk",
+								"pickupp",
+								"io"
+							],
+							"path": [
+								"v2",
+								"merchant",
+								"orders",
+								"123"
+							],
+							"query": [
+								{
+									"key": "include_history",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"identifier\": \"312129002@qq.com\",\n    \"password\": \"456789sS!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/auth/local",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"auth",
+						"local"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "注册",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"312129001@qq.com\",\n    \"email\": \"312129001@qq.com\",\n    \"tel\": \"13397642288\",\n    \"company\":\"test\",\n    \"password\": \"456789sS!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/auth/local/register",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"auth",
+						"local",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
