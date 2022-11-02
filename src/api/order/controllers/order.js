@@ -179,7 +179,13 @@ const _createOrder = async (ctx, next) => {
         var tmp = pickup_time.split(" ");
         pickup_time = tmp[0] + " " + regionResult?.time;
         var d = new Date(pickup_time);
-        pickup_time = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + "T" + regionResult?.time;
+        var dayStr = '';
+        if (d.getDate() < 10) {
+            dayStr = '0' + d.getDate()
+        } else {
+            dayStr = d.getDate()
+        }
+        pickup_time = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + dayStr + "T" + regionResult?.time;
         console.log("日期：")
         console.log(pickup_time)
 
